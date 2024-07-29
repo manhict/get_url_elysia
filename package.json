@@ -1,16 +1,17 @@
 {
-  "name": "bun-vercel",
-  "version": "1.0.0",
+  "name": "app",
+  "version": "1.0.50",
   "type": "module",
-  "bin": {
-    "bun-vercel": "./build.sh"
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "latest",
+    "express": "^4.19.2"
   },
   "devDependencies": {
-    "bun-types": "^1.0.2",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "bun-types": "latest"
   },
-  "scripts": {
-    "dev": "bun run src/main.ts"
-  }
+  "module": "src/index.js"
 }
