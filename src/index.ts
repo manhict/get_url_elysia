@@ -1,37 +1,29 @@
 import { Elysia, Context } from "elysia";
 
 const app = new Elysia()
-  .get("/", (c: Context) => {
-    if (c.query.url) {
-      try{
-        return fetch(c.query.url)
-        .then(r => r.text())
-        .then((data) => {
-          return {
-            error: false,
-            message: 200,
-            data: data
-          }
-        })
-        .catch((err:any) => {
-          return {
-            error: true,
-            message: err.message,
-            data: ""
-          }
-        });
-      }
-      catch(err:any){
+  .get("/", async (c: Context) => {
+    const url = c.query.url;
+    if (url) {
+      try {
+        const response = await fetch(url);
+        const data = await response.text();
+        return {
+          error: false,
+          message: 200,
+          data: data
+        };
+      } catch (err: any) {
         return {
           error: true,
           message: err.message,
           data: ""
-        }
+        };
       }
+    } else {
+      return 'OK';
     }
-    else return 'OK';
-  }).listen(2000);
+  });
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+app.listen(2000, () => {
+  console.log(`🦊 Elysia is running at http://localhost:2000`);
+});
