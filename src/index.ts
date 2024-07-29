@@ -1,18 +1,38 @@
-import express from "express";
-import { handler } from "./elysia-handler"; 
+import { Elysia, Context } from "elysia";
 
-const app = express();
+const app = new Elysia()
+  .get("/", (c: Context) => {
+    if (c.query.url) {
+      try{
+        return fetch(c.query.url)
+        .then(r => r.text())
+        .then((data) => {
+          return {
+            error: false,
+            message: 200,
+            data: data
+          }
+        })
+        .catch((err:any) => {
+          return {
+            error: true,
+            message: err.message,
+            data: ""
+          }
+        });
+      }
+      catch(err:any){
+        return {
+          error: true,
+          message: err.message,
+          data: ""
+        }
+      }
+    }
+    else return 'OK';
+  })
+  .listen(2000);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Sử dụng handler Elysia cho các route
-app.all("*", async (req, res) => {
-  const result = await handler(req);
-  res.status(result.message).json(result);
-});
-
-const PORT = 2000;
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
+console.log(
+  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+);
