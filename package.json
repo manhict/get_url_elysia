@@ -12,14 +12,13 @@
     "start": "bun run ./src/main.ts"
   },
   "devDependencies": {
-    "bun-vercel": "^1.0.0-alpha.5",
     "bun-types": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "latest"
   },
   "dependencies": {
-    "bun": "^1.0.15",
-    "elysia": "^0.7.29"
+    "bun": "latest",
+    "elysia": "latest"
   }
 }
