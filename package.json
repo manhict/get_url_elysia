@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "bun": "^1.0.15",
-    "bun-on-vercel": "link:bun-on-vercel",
     "elysia": "^0.7.29"
   }
 }
