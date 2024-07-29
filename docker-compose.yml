@@ -9,6 +9,6 @@ services:
     # execute bun install before we start the dev server in watch mode
     command: "/bin/sh -c 'bun install && bun run --watch src/main.ts'"
     # expose the right ports
-    ports: ["3000:3000"]
+    ports: ["2000:2000"]
     # setup a host mounted volume to sync changes to the container
     volumes: ["./:/home/bun/app"]
