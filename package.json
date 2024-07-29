@@ -1,9 +1,10 @@
 {
   "name": "app",
   "version": "1.0.50",
+  "type": "module",
   "scripts": {
-    "build": "bun build",
-    "start": "bun src/index.ts",
+    "build": "bun run build",
+    "start": "bun run src/index.ts",
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
