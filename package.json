@@ -9,9 +9,7 @@
   },
   "scripts": {
     "dev": "bun run --watch ./src/main.ts",
-    "start": "bun run ./src/main.ts",
-    "build": "bun build ./src/main.ts --outdir ./out",
-    "test": "bun test"
+    "start": "bun run ./src/main.ts"
   },
   "devDependencies": {
     "bun-vercel": "^1.0.0-alpha.5",
