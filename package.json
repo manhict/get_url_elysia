@@ -2,6 +2,7 @@
   "name": "app",
   "version": "1.0.50",
   "scripts": {
+    "postinstall": "bun install",
     "start": "bun run src/index.ts",
     "dev": "bun run --watch src/index.ts"
   },
