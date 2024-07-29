@@ -1,17 +1,28 @@
 {
-  "name": "app",
-  "version": "1.0.50",
+  "name": "bun-on-vercel",
+  "module": "index.ts",
+  "version": "0.0.1",
+  "private": true,
   "type": "module",
-  "scripts": {
-    "start": "bun run src/index.ts",
-    "dev": "bun run --watch src/index.ts"
+  "bin": {
+    "my-bun-cli": "out/main.js"
   },
-  "dependencies": {
-    "elysia": "latest",
-    "express": "^4.19.2"
+  "scripts": {
+    "dev": "bun run --watch ./src/main.ts",
+    "start": "bun run ./src/main.ts",
+    "build": "bun build ./src/main.ts --outdir ./out",
+    "test": "bun test"
   },
   "devDependencies": {
+    "bun-vercel": "^1.0.0-alpha.5",
     "bun-types": "latest"
   },
-  "module": "src/index.js"
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "bun": "^1.0.15",
+    "bun-on-vercel": "link:bun-on-vercel",
+    "elysia": "^0.7.29"
+  }
 }
