@@ -14,6 +14,7 @@ const app = new Elysia()
           }
         })
         .catch((err:any) => {
+          // console.log(err)
           return {
             error: true,
             message: err.message,
@@ -34,5 +35,5 @@ const app = new Elysia()
   .listen(2000);
 
   console.log(
-	`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+	`🦊 Elysia is running at: http://${app.server?.hostname}:${app.server?.port}`
   );
